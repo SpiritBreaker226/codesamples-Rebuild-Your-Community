@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/SubPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" id="viewport" content="initial-scale=1.0,user-scalable=no" />
+    
+    <script src="javascript/MainJS.js" type="text/javascript"></script>
+    <script src="javascript/RSA.js" type="text/javascript" charset="utf-8"></script>
+	<script src="javascript/phonegap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/jquery.retina.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- InstanceBeginEditable name="HeaderCSS" -->
+    
+    <!-- InstanceEndEditable -->
+    
+    <!-- iPad/iPhone specific css below, add after your main css  media="only screen and (max-device-width: 480px)"
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="../www/CSS/mainCSSPad.css" type="text/css" />-->	
+	<link rel="stylesheet" href="CSS/mainCSS.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+    
+    <script type="text/javascript" charset="utf-8"> 
+		//Wait for PhoneGap to load
+		document.addEventListener("deviceready", onDeviceReady, false);
+	 
+		//PhoneGap is ready
+		function onDeviceReady() 
+		{						
+			//loads the browser inside the app
+			if(window.plugins.childBrowser == null)
+				ChildBrowser.install();
+		}//end of onDeviceReady()
+    </script>
+    
+    <!-- InstanceBeginEditable name="doctitle" -->
+	<title>RYC - Submit</title>
+	<!-- InstanceEndEditable -->
+	<!-- InstanceBeginEditable name="head" -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="javascript/jquery.geocomplete.js"></script>
+   	<script src="javascript/fileuploader.js"></script>
+	<!-- InstanceEndEditable -->
+</head>
+<body>
+	<div data-role="page" id="Home">            
+     	<div data-role="content">
+            <div id="divBody">
+                <div class="customContainer divTopSubHeaderContainer">
+                    <div class="customContent divTopSubHeaderContent">
+                        <img alt="RYC" src="resources/Images/ryc-mobile-logo1.png" />
+                    </div>
+                    <div class="customNavigation divTopSubHeaderNavigation" id="divMenu">
+                    	<a href="Register.html" id="aLoginImage"><img alt="Sign Up" class="retina" src="resources/Images/signup-brown-btn.png" /></a>               
+                    	<a href="javascript:void(0);" onclick="window.localStorage.clear();window.location = 'index.html'" target="_self" id="aLogOut" class="divJustHidden"><img alt="Log Out" src="resources/Images/ryc-mobile-button-logout.png" id="imgLogout" /></a>
+                        <br /><br />
+                    	<a href="index.html" target="_self"><img alt="Menu" src="resources/Images/ryc-mobile-button-menu.png" id="imgMenu" /></a>
+                    </div>
+                    <div class="customFooter divTopSubHeaderFooter"></div>
+                </div>
+            </div>
+            <div id="divSubHeader">
+                <!-- InstanceBeginEditable name="SubHeader" -->
+				<label>Submit</label>
+				<!-- InstanceEndEditable -->
+            </div>
+            <!-- InstanceBeginEditable name="IntroText" -->
+            <!-- InstanceEndEditable -->
+            <div id="divSubBudy">
+                <!-- InstanceBeginEditable name="SubBody" -->
+                <form name="frmSubmit" action="javascript:void(0);">
+                	<div class="divBasicMessage" id="divDataMessage"></div>
+
+                    <div id="divSubmit">                    
+                    	<div id="divStep1" class="divJustHidden" style="display:block;">
+                        	<div class="customContainer" id="divRequiredContainer">
+                                <div class="customContent" id="divRequiredContent">
+                                    <label class="lblFontGreen lblFontBold">Problem Location:</label>
+                                </div>
+                                <div class="customNavigation" id="divRequiredNavigation">
+                                    <!--<label><span class="lblFontGreen lblFontBold">Green</span> = Required Fields</label>-->
+                                    <div id="divNextStep">
+                                        <input value="Next Step" onClick="javascript:duelToggleLayer('divStep2','divStep1','');" type="button" id="cmdNextStep" />
+                                    </div>
+                                </div>
+                                <div class="customFooter" id="divRequiredFooter"></div>
+                            </div>
+                        
+                            <div id="divSubmitAddressInter">                                 
+                                <div class="customContainer" id="divSubmitAddressInterContainer">
+                                    <div class="customContent" id="divSubmitAddressInterContent">
+                                        <input id="txtGeocomplete" type="text" placeholder="Type in an Address" />
+                                    </div>
+                                    <div class="customContent divSubmitAddressInterContentButton">
+										<input id="find" type="button" value="find" />
+                                    </div>
+                                    <div class="customNavigation divSubmitAddressInterNavigation">
+                                        <label> or </label><a href="javascript:void(0);" onclick="navigator.geolocation.getCurrentPosition(gpsPositionSubmit, onGPSFail,{ timeout: 5000 });">Get Position</a>
+                                    </div>
+                                    <div class="customFooter" id="divSubmitAddressInterFooter"></div>
+                                </div>
+                            </div>
+                            
+                            <div id="divPosition" class="divJustHidden">
+                            	<div id="divNears"></div>
+							</div>
+
+                            <label id="lblFullAddressNumber" name="formatted_address" class="divJustHidden"></label> <label id="lblLocatoinLat" name="lat" class="divJustHidden"></label> <label id="lblLocatoinLng" name="lng" class="divJustHidden"></label>
+                                                        
+							<div class="divMapCanvas"></div>
+                    	</div>
+                    	<div id="divStep2" class="divJustHidden">
+                        	<div class="customContainer" id="divRequiredContainer">
+                                <div class="customContent" id="divRequiredContent">
+                                    <label class="lblFontGreen lblFontBold"></label>
+                                </div>
+                                <div class="customNavigation" id="divRequiredNavigation">
+                                    <div id="divPrevStep">
+        		                        <input value="Prev Step" onClick="javascript:duelToggleLayer('divStep1','divStep2','');" type="button" id="cmdPrevStep" />
+		                            </div>
+                                </div>
+                                <div class="customFooter" id="divRequiredFooter"></div>
+                            </div>
+                                                                                  
+                            <div class="customHeader divSubmitHeader">
+                                <label>Tell us about this?</label>
+                            </div>
+                            <div class="customContent divSubmitContent">
+                                <label class="lblFontGreen lblFontBold">Title</label>
+                            </div>
+                            <div class="customNavigation divSubmitNavigation">
+                                <input maxlength="1024" id="txtName" type="text" />
+                            </div>
+                            <div class="customFooter divSubmitFooter"></div>
+                            
+                            <div class="customContent divSubmitContent">
+                                <label class="lblFontGreen lblFontBold">Type of Problem</label>
+                            </div>
+                            <div class="customNavigation divSubmitNavigation">
+                                <select id="ddlAssignment" onchange="send311GetData('','div311Message',getSelectOption(getDocID('ddlAssignment')),getDocID('divAssignment311'));if(getSelectOption(getDocID('ddlAssignment')) == '14'){getDocID('divAnonymous').style.display = 'none'}else{getDocID('divAnonymous').style.display = '';}"></select>
+                            </div>
+                            <div class="customFooter divSubmitFooter"></div>
+                            
+                            <div class="customHeader divSubmitButtomHeader">
+                                <div class="divBasicMessage" id="div311Message"></div>
+                            </div>
+                            <div id="divAssignment311"></div>
+                            
+                            <div>
+                                <label>Description:</label>
+                            </div>
+                            <div class="divDetailDescription">
+                                <textarea id="txtDescription" cols="45" rows="8"></textarea>
+                            </div>
+                                                    
+                            <div class="customContainer divSubmitAgreeContainer" id="divAnonymous">
+                                <div class="customContent divSubmitAgreeContent">
+                                    <input id="chkAnonymous" name="chkAnonymous" type="checkbox" />
+                                </div>
+                                <div class="customNavigation divSubmitAgreeNavigation">
+                                    <label>Anonymous</label>
+                                </div>
+                                <div class="customFooter divSubmitAgreeFooter"></div>
+                            </div>
+                                            
+                            <div class="customHeader divSubmitHeader">
+                                <label>Upload Photos<!-- and Videos--></label>
+                            </div>
+                            
+                            <div class="customContainer divSubmitPhotosContainer">
+                                <div class="customContent divSubmitPhotosContent">
+                                    <label>Primary Photo:</label>
+                                </div>
+                                <div class="customNavigation divSubmitPhotosNavigation">
+                                    <div class="customContainer divSubmitPhotosButtonsContainer">
+                                        <div class="customContent divSubmitPhotosButtonsContent divJustHidden">
+                                            <input onclick="navigator.camera.getPicture(photoDataSuccessThumb, onFail, { quality: 50, allowEdit: true, destinationType: destinationType.DATA_URL });" type="button" value="Use Camera" />
+                                        </div>
+                                        <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                            <input onclick="navigator.camera.getPicture(photoURISuccessThumb, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });" type="button" value="From Library" /><!--Photo -->
+                                        </div>
+                                        <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                    </div>
+                                </div>
+                                <div class="customFooter divSubmitPhotosFooter">
+                                    <div class="customContainer divSubmitThumbContainer">
+                                        <div class="customContent divSubmitThumbContent">
+                                            <img class="imgSumbitPhotos divJustHidden" id="imgSumbitThumb" />
+                                        </div>
+                                        <div class="customNavigation divSubmitThumbNavigation">
+                                            <a href="javascript:void(0);" onclick="javascript:navigator.notification.confirm('Are your sure to you want to remove this image?',onRemoveThumbPhotoClick,'Remove Thumb Photo?','Yes,No'));" id="aSumbitThumb" class="divJustHidden">Remove Image</a>
+                                        </div>
+                                        <div class="customFooter divSubmitThumbFooter"></div>
+                                    </div>
+                                </div>
+                                                                
+                                <div class="customContent divSubmitPhotosContent">
+                                    <label>Photo Two:</label>
+                                </div>
+                                <div class="customNavigation divSubmitPhotosNavigation">
+                                    <div class="customContainer divSubmitPhotosButtonsContainer">
+                                        <div class="customContent divSubmitPhotosButtonsContent divJustHidden">
+                                            <input onclick="navigator.camera.getPicture(photoDataSuccessPhoto1, onFail, { quality: 25, allowEdit: true, destinationType: destinationType.DATA_URL });" type="button" value="Use Camera" />
+                                        </div>
+                                        <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                            <input onclick="navigator.camera.getPicture(photoURISuccessPhoto1, onFail, { quality: 25, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });" type="button" value="From Library" /><!--Photo -->
+                                        </div>
+                                        <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                    </div>
+                                </div>
+                                <div class="customFooter divSubmitPhotosFooter">
+                                    <div class="customContainer divSubmitThumbContainer">
+                                        <div class="customContent divSubmitThumbContent">
+                                            <img class="imgSumbitPhotos divJustHidden" id="imgSumbitPhoto1" />
+                                        </div>
+                                        <div class="customNavigation divSubmitThumbNavigation">
+                                            <a href="javascript:void(0);" onclick="javascript:navigator.notification.confirm('Are your sure to you want to remove this image?',onRemovePhoto1Click,'Remove  Photo One?','Yes,No'));" id="aSumbitPhoto1" class="divJustHidden">Remove Image</a>
+                                        </div>
+                                        <div class="customFooter divSubmitThumbFooter"></div>
+                                    </div>
+                                </div>
+                                                                  
+                                <div class="customContent divSubmitPhotosContent">
+                                    <label>Photo Three:</label>
+                                </div>
+                                <div class="customNavigation divSubmitPhotosNavigation">
+                                    <div class="customContainer divSubmitPhotosButtonsContainer">
+                                        <div class="customContent divSubmitPhotosButtonsContent divJustHidden">
+                                            <input onclick="navigator.camera.getPicture(photoDataSuccessPhoto2, onFail, { quality: 50, allowEdit: true, destinationType: destinationType.DATA_URL });" type="button" value="Use Camera" />
+                                        </div>
+                                        <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                            <input onclick="navigator.camera.getPicture(photoURISuccessPhoto2, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });" type="button" value="From Library" /><!--Photo -->
+                                        </div>
+                                        <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                    </div>
+                                </div>
+                                <div class="customFooter divSubmitPhotosFooter">
+                                    <div class="customContainer divSubmitThumbContainer">
+                                        <div class="customContent divSubmitThumbContent">
+                                            <img class="imgSumbitPhotos divJustHidden" id="imgSumbitPhoto2" />
+                                        </div>
+                                        <div class="customNavigation divSubmitThumbNavigation">
+                                            <a href="javascript:void(0);" onclick="javascript:navigator.notification.confirm('Are your sure to you want to remove this image?',onRemovePhoto2Click,'Remove  Photo Two?','Yes,No'));" id="aSumbitPhoto2" class="divJustHidden">Remove Image</a>
+                                        </div>
+                                        <div class="customFooter divSubmitThumbFooter"></div>
+                                    </div>
+                                </div>
+                                    
+                                <div class="customContent divSubmitPhotosContent">
+                                    <label>Photo Four:</label>
+                                </div>
+                                <div class="customNavigation divSubmitPhotosNavigation">
+                                    <div class="customContainer divSubmitPhotosButtonsContainer">
+                                        <div class="customContent divSubmitPhotosButtonsContent divJustHidden">
+                                            <input onclick="navigator.camera.getPicture(photoDataSuccessPhoto3, onFail, { quality: 50, allowEdit: true, destinationType: destinationType.DATA_URL });" type="button" value="Use Camera" />
+                                        </div>
+                                        <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                            <input onclick="navigator.camera.getPicture(photoURISuccessPhoto3, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });" type="button" value="From Library" /><!--Photo -->
+                                        </div>
+                                        <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                    </div>				
+                                </div>
+                                <div class="customFooter divSubmitPhotosFooter">
+                                    <div class="customContainer divSubmitThumbContainer">
+                                        <div class="customContent divSubmitThumbContent">
+                                            <img class="imgSumbitPhotos divJustHidden" id="imgSumbitPhoto3" />
+                                        </div>
+                                        <div class="customNavigation divSubmitThumbNavigation">
+                                            <a href="javascript:void(0);" onclick="javascript:navigator.notification.confirm('Are your sure to you want to remove this image?',onRemovePhoto3Click,'Remove  Photo Three?','Yes,No'));" id="aSumbitPhoto3" class="divJustHidden">Remove Image</a>
+                                        </div>
+                                        <div class="customFooter divSubmitThumbFooter"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="customContent divSubmitPhotosContent">
+                                    <label>Photo Five:</label>
+                                </div>
+                                <div class="customNavigation divSubmitPhotosNavigation">
+                                    <div class="customContainer divSubmitPhotosButtonsContainer">
+                                        <div class="customContent divSubmitPhotosButtonsContent divJustHidden">
+                                            <input onclick="navigator.camera.getPicture(photoDataSuccessPhoto4, onFail, { quality: 50, allowEdit: true, destinationType: destinationType.DATA_URL });" type="button" value="Use Camera" />
+                                        </div>
+                                        <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                            <input onclick="navigator.camera.getPicture(photoURISuccessPhoto4, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });" type="button" value="From Library" /><!--Photo -->
+                                        </div>
+                                        <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                    </div> 					
+                                </div>
+                                <div class="customFooter divSubmitPhotosFooter">
+                                    <div class="customContainer divSubmitThumbContainer">
+                                        <div class="customContent divSubmitThumbContent">
+                                            <img class="imgSumbitPhotos divJustHidden" id="imgSumbitPhoto4" />
+                                        </div>
+                                        <div class="customNavigation divSubmitThumbNavigation">
+                                            <a href="javascript:void(0);" onclick="javascript:navigator.notification.confirm('Are your sure to you want to remove this image?',onRemovePhoto4Click,'Remove  Photo Four?','Yes,No'));" id="aSumbitPhoto4" class="divJustHidden">Remove Image</a>
+                                        </div>
+                                        <div class="customFooter divSubmitThumbFooter"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="customContent divSubmitPhotosContent">
+                                    <label>Photo Six:</label>
+                                </div>
+                                <div class="customNavigation divSubmitPhotosNavigation">
+                                    <div class="customContainer divSubmitPhotosButtonsContainer">
+                                        <div class="customContent divSubmitPhotosButtonsContent divJustHidden">
+                                            <input onclick="navigator.camera.getPicture(photoDataSuccessPhoto5, onFail, { quality: 50, allowEdit: true, destinationType: destinationType.DATA_URL });" type="button" value="Use Camera" />
+                                        </div>
+                                        <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                            <input onclick="navigator.camera.getPicture(photoURISuccessPhoto5, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });" type="button" value="From Library" /><!--Photo -->
+                                        </div>
+                                        <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                    </div>
+                                </div>
+                                <div class="customFooter divSubmitPhotosFooter">
+                                    <div class="customContainer divSubmitThumbContainer">
+                                        <div class="customContent divSubmitThumbContent">
+                                            <img class="imgSumbitPhotos divJustHidden" id="imgSumbitPhoto5" />
+                                        </div>
+                                        <div class="customNavigation divSubmitThumbNavigation">
+                                            <a href="javascript:void(0);" onclick="javascript:navigator.notification.confirm('Are your sure to you want to remove this image?',onRemovePhoto5Click,'Remove  Photo Five?','Yes,No'))" id="aSumbitPhoto5" class="divJustHidden">Remove Image</a>
+                                        </div>
+                                        <div class="customFooter divSubmitThumbFooter"></div>
+                                    </div>
+                                </div>
+                                <div class="divJustHidden">   
+                                    <div class="customContent divSubmitPhotosContent">
+                                        <label>Video:</label>
+                                    </div>
+                                    <div class="customNavigation divSubmitPhotosNavigation">
+                                        <div class="customContainer divSubmitPhotosButtonsContainer">
+                                            <div class="customContent divSubmitPhotosButtonsContent">
+                                                <input onclick="navigator.device.capture.captureVideo(videoSuccess, onFail, {limit: 1});" type="button" value="Use Camera" />
+                                            </div>
+                                            <div class="customNavigation divSubmitPhotosButtonsNavigation">
+                                                <input onclick="navigator.camera.getPicture(photoURISuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY, MediaType: Camera.MediaType.VIDEO });" type="button" value="From Library" />
+                                            </div>
+                                            <div class="customFooter divSubmitPhotosButtonsFooter"></div>
+                                        </div>
+                                    </div>                         	
+                                    <div class="customFooter divSubmitPhotosFooter">
+                                        <video id="videoSumbit" width='100' height='100' controls='controls' class="divJustHidden" poster="resources/Images/ryc-mobile-logo1.jpg">
+                                            <source id="videoSumbitSource" type='video/quicktime' />
+                                            <label>Your browser does not support the video tag</label>
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="customHeader divSubmitHeader">
+                                <label>Tags</label>
+                            </div>
+                            <div>
+                                <label>Enter up to 5 descriptive keywords that relate to this issue. Please separate each keyword with a comma.</label>
+                            </div>
+                            <div id="divIssueTags">
+                                <div class="customContent divSubmitContent">
+                                    <label>Issue Tags:</label>
+                                </div>
+                                <div class="customNavigation divSubmitNavigation">
+                                    <input id="txtIssueTags" type="text" />
+                                </div>
+                                <div class="customFooter divSubmitFooter"></div>
+                            </div>
+                            <div class="customHeader divSubmitHeader">
+                                <label>Terms of Use</label>
+                            </div>
+                            <div class="divAgreeTerms">
+                            </div>
+                            <div class="customContainer divSubmitAgreeContainer">
+                                <div class="customContent divSubmitAgreeContent">
+                                    <input id="chkAgreeTerms" type="checkbox" />
+                                </div>
+                                <div class="customNavigation divSubmitAgreeNavigation">
+                                    <label>I Agree to the terms of use</label>
+                                </div>
+                                <div class="customFooter divSubmitAgreeFooter"></div>
+                            </div>
+                            <div id="divSubmitButton">
+                                <div class="customContainer divSubmitButtomContainer">
+                                    <div class="customHeader divSubmitButtomHeader">
+                                        <div class="divBasicMessage" id="divMessage"></div>
+                                    </div>
+                                    <div class="customContent divSubmitButtomContent" id="divProSave">
+                                        <progress id="proSave"></progress>
+                                        <br />
+                                        <label id="lblProSave"></label>
+                                    </div>
+                                    <div class="customNavigation divSubmitButtomNavigation">
+                                        <input value="Submit" onClick="javascript:sendSubmit('','divMessage',getDocID('lblFullAddressNumber'),getDocID('lblLocatoinLat'),getDocID('lblLocatoinLng'),getDocID('txtName'),getDocID('ddlAssignment'),getDocID('txtDescription'),getDocID('chkAnonymous'),getDocID('txtIssueTags'),getDocID('chkAgreeTerms'),getDocID('imgSumbitThumb'),getDocID('imgSumbitPhoto1'),getDocID('imgSumbitPhoto2'),getDocID('imgSumbitPhoto3'),getDocID('imgSumbitPhoto4'),getDocID('imgSumbitPhoto5'),getDocID('videoSumbitSource'),getDocID('divSubmit'),getDocID('cmdSave'),getDocID('divAssignment311'));" type="submit" id="cmdSave" />
+                                    </div>
+                                    <div class="customFooter divSubmitButtomFooter"></div>
+                                </div>
+                            </div>
+						</div>
+                    </div>
+                </form>
+				<!-- InstanceEndEditable -->
+            </div>
+		</div>
+	</div>
+        
+    <!-- InstanceBeginEditable name="SubFooter" -->
+	<script charset="utf-8">
+		var pictureSource;//picture source
+		var destinationType;//sets the format of returned value 
+	
+		//Wait for PhoneGap to load
+		document.addEventListener("deviceready",onDeviceReady,false);
+	
+		//PhoneGap is ready
+		function onDeviceReady() 
+		{
+			$("#txtGeocomplete").geocomplete({
+          		map: ".divMapCanvas",
+				mapOptions: {
+				  streetViewControl: false,
+				},
+          		details: "form",
+          		types: ["geocode", "establishment"],
+				componentRestrictions: {country: 'ca'}
+        	});
+			
+			$("#txtGeocomplete").bind("geocode:result", function(event, results){
+				 map.setCenter(new google.maps.LatLng(results.geometry.location.lat(),results.geometry.location.lng()));
+			});
+					
+        	$("#find").click(function(){
+				//checks if there is any text to use
+				if ($("#txtGeocomplete").val().length > 0)
+				{
+					//gets the geo code complate
+          			$("#txtGeocomplete").trigger("geocode");
+				
+					//displays the map and the next step
+					$(".divMapCanvas").show();
+					$("#divNextStep").show();
+				}//end of if
+			});
+			
+			//hides the map canvas and next step to force the user to find a address
+			$(".divMapCanvas").hide();
+			$("#divNextStep").hide();
+			
+			//sets the properties for the carmra
+			pictureSource = navigator.camera.PictureSourceType;
+			destinationType = navigator.camera.DestinationType;
+			
+			//gets the default city and provaities and Wards selected
+			sendGetDropDownsValues('','divMessage',getDocID('ddlAssignment'), '');
+			
+			//removes the any sending Messages
+			displayMessage('divMessage','',true,true);
+		}//end of onDeviceReady()
+    </script>	
+	<!-- InstanceEndEditable -->
+    
+    <div id="divFooter">
+        <div class="customContainer divFooterContainer">
+            <div class="customContent divFooterContent">
+                <a href="About.html" target="_self">About</a>
+            </div>
+            <div class="customContent divFooterContent">
+                <a href="Privacy.html" target="_self">Privacy</a>
+            </div>
+            <div class="customContent divFooterContent">
+                <a href="Terms.html" target="_self">Terms of Use</a>
+            </div>
+            <div class="customNavigation divFooterNavigation">
+                <a href="Contact.html" target="_self">Contact Us</a>
+            </div>
+            <div class="customFooter" id="divFooterFooter"></div>
+        </div>
+    </div>
+    
+	<script type="text/javascript">						
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		/* When this function is called, PhoneGap has been initialized and is ready to roll */
+		/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+		see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+		for more details -jm */
+		function onDeviceReady()
+		{			
+			//checks if the user is if not so then do not display the Profile and give them the option to log in using the Submit link
+			if(isNaN(window.localStorage.getItem("intUserID")) == false && parseInt(window.localStorage.getItem("intUserID")) > 0)
+			{
+				getDocID("aLogOut").style.display = "block";
+				getDocID("aLoginImage").style.display = "none";
+				getDocID("divMenu").className = "customContent divTopSubHeaderLogInNavigation";
+			}//end of if
+		}//end of onDeviceReady()
+		
+		$(document).ready(function() {
+			$('img.retina').retina();
+		});
+	</script>
+</body>
+<!-- InstanceEnd --></html>

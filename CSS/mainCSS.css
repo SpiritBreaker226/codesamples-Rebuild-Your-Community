@@ -1,0 +1,1030 @@
+body {
+	padding: 0;
+	margin: 0;
+	/*background-color: #EFEFEF;*/
+	background-color: #FFFFFF;
+	/*font-family: Trebuchet MS;*/
+	font-family: Helvetica;
+	font-size: 12.5px;
+	color: #000000;
+	
+	/*
+
+		Preventing scrolling
+
+	*/
+	width: 100%;
+	height: 100%;
+}
+
+#divBody {
+	margin: 10px 10px 0;
+}
+
+#Home {
+	min-height: 410px;
+}
+
+a {
+    color: #1F4F7D;
+    text-decoration: none;
+}
+
+.lblFontBold {
+	font-weight: bold;
+}
+
+.lblFontRed {
+    color: #AB120F;
+}
+
+.lblFontGreen {
+    color: #7BAD01;
+}
+
+.lblFontBlue {
+   color: #5187C8;
+}
+
+.lblFontOrange {
+   color: #D18022;
+}
+
+/*
+	
+	Tableless Forms
+
+*/
+
+div.customContainer {
+}
+
+div.customHeader {
+	/*width: 100%;*/
+} 
+
+div.customFooter {
+	/*width: 100%;*/
+	clear: both;
+} 
+
+div.customContent {
+	float: left;
+	/*width: 49%;*/
+} 
+
+div.customThridContent {
+	float: left;
+	/*width: 49%;*/
+} 
+
+div.customNavigation {
+	float: left;
+	/*width: 51%;*/
+}
+
+/*
+	
+	Tableless Forms - Footer
+
+*/
+
+div.divFooterContainer {
+	font-size: 15px;
+}
+
+div.divFooterFooter {
+}
+
+div.divFooterNavigation {
+	padding-left: 8px;
+}
+
+div.divFooterContent {
+	border-right: 1px solid #97948D;
+	padding: 0 8px;
+}
+
+div.divFooterContent a, div.divFooterNavigation a {
+	color: #97948D;
+}
+
+/*
+	
+	Tableless Forms - Login
+
+*/
+
+div.divLogInContainer {
+	margin-top: 10px;
+}
+
+div.divLogInHeader {
+	margin: 8px 0;
+}
+
+div.divLogInFooter {
+	text-align: right;
+	/*width: 375px;*/
+	width: 95%;
+}
+
+div.divLogInNavigation {
+	margin: 0 8px 8px 0;
+}
+
+div.divLogInContent {
+	text-align: left;
+	margin: 0 8px 8px 0;
+	/*width: 200px;*/
+	width: 40%;
+}
+
+/*
+	
+	Tableless Forms - Welcome
+
+*/
+
+div.divWelcomeContainer {
+}
+
+div.divWelcomeHeader {
+}
+
+div.divWelcomeFooter {
+}
+
+div.divWelcomeNavigation, div.divWelcomeLogInNavigation {
+	text-align: left;
+	width: 34%;
+	margin: 10px 0 0;
+}
+
+div.divWelcomeLogInNavigation {
+	width: 65%;
+	text-align: right;
+}
+
+div.divWelcomeContent, div.divWelcomeLogInContent {
+	text-align: right;
+	width: 34%;
+	margin: 10px 0 5px;
+}
+
+div.divWelcomeLogInContent {
+	width: 34%;
+	margin: 0 0 0 5px;
+	text-align: left;
+}
+
+div.divWelcomeThridContent {
+	margin: 10px 5px 0;
+}
+
+/*
+	
+	Tableless Forms - Search - Header
+
+*/
+
+div#divSearchHeaderContainer {
+}
+
+div#divSearchHeaderFooter {
+}
+
+div#divSearchHeaderNavigation {
+}
+
+div#divSearchHeaderContent {
+	width: 19%;
+	margin-right: 2px;
+}
+
+/*
+	
+	Tableless Forms - Issues Details - Header
+
+*/
+
+div#divIssuesDetailsHeaderContainer {
+}
+
+div#divIssuesDetailsHeaderFooter {
+}
+
+div#divIssuesDetailsHeaderNavigation {
+}
+
+div#divIssuesDetailsHeaderContent {
+}
+
+/*
+	
+	Tableless Forms - Issues Details
+
+*/
+
+div#divIssuesDetailsContainer {
+}
+
+div#divIssuesDetailsFooter {
+}
+
+div#divIssuesDetailsNavigation {
+}
+
+div#divIssuesDetailsContent {
+	width: 15%;
+	margin-right: 10px;
+}
+
+/*
+	
+	Tableless Forms - Issues Details - Image
+
+*/
+
+div.divIssuesDetailsImageContainer {
+}
+
+div.divIssuesDetailsImageFooter {
+}
+
+div.divIssuesDetailsImageNavigation {
+	padding: 5px 5px 0 0;
+}
+
+div.divIssuesDetailsImageContent {
+	padding: 5px 5px 5px 0;
+}
+
+div.divIssuesDetailsImageContent a img, div.divIssuesDetailsImageNavigation a img {
+	width: 48px;
+}
+
+/*
+	
+	Tableless Forms - Top Sub Header
+
+*/
+
+div.divTopSubHeaderContainer {
+}
+
+div.divTopSubHeaderFooter {
+}
+
+div.divTopSubHeaderNavigation, div.divTopSubHeaderLogInNavigation {
+    width: 5%;
+	text-align: right;
+	margin-top: 15px;
+}
+
+div.divTopSubHeaderLogInNavigation {
+	line-height: 8px;
+    margin-top: 10px;
+}
+
+div.divTopSubHeaderContent {
+	text-align: left;
+	width: 75%;
+}
+
+/*
+	
+	Tableless Forms - Top Sub Header - Nav
+
+*/
+
+div.divTopSubHeaderNavContainer {
+	width: 100%;
+	text-align: right;
+}
+
+div.divTopSubHeaderNavHeader {
+	margin-bottom: 5px;
+}
+
+div.divTopSubHeaderNavFooter {
+}
+
+div.divTopSubHeaderNavContent {
+	width: 75%;
+}
+
+div.divTopSubHeaderNavNavigation {
+	margin: 8px 0 0 5px;
+}
+
+/*
+	
+	Tableless Forms - Submit
+
+*/
+
+div.divSubmitContainer {
+	line-height: 18px;
+	padding: 0px 0 10px 30px;
+}
+
+div.divSubmitHeader {
+	text-align: left;
+	font-size: 16px;
+	font-weight: bolder;
+	padding: 10px 0px 20px 0px;
+}
+
+div.divSubmitFooter {
+	padding: 5px 0;
+}
+
+div.divSubmitContent {
+	width: 50%;
+	text-align: left;
+}
+
+div.divSubmitNavigation input {
+	width: 120px;
+}
+
+div.divSubmitNavigation {
+}
+
+/*
+	
+	Tableless Forms - Submit - Photos
+
+*/
+
+div.divSubmitPhotosContainer {
+}
+
+div.divSubmitPhotosFooter {
+	padding: 8px 0 5px;
+}
+
+div.divSubmitPhotosContent {
+	width: 35%;
+	text-align: left;
+}
+
+div.divSubmitPhotosNavigation {
+	/*padding: 6px;*/
+}
+
+/*
+	
+	Tableless Forms - Submit - Photos - Buttons
+
+*/
+
+div.divSubmitPhotosButtonsContainer {
+}
+
+div.divSubmitPhotosButtonsFooter {
+}
+
+div.divSubmitPhotosButtonsContent {
+	width: 50%;
+	text-align: left;
+}
+
+div.divSubmitPhotosButtonsNavigation {
+	/*padding: 6px;*/
+}
+
+/*
+	
+	Tableless Forms - Submit - Thumb
+
+*/
+
+div.divSubmitThumbContainer {
+}
+
+div.divSubmitThumbFooter {
+}
+
+div.divSubmitThumbContent {
+	width: 30%;
+	text-align: left;
+}
+
+div.divSubmitThumbNavigation {
+	width: 50%;
+}
+
+/*
+	
+	Tableless Forms - Submit - Agree
+
+*/
+
+div.divSubmitAgreeContainer {
+}
+
+div.divSubmitAgreeFooter {
+}
+
+div.divSubmitAgreeContent {
+	width: 10%;
+	text-align: left;
+}
+
+div.divSubmitAgreeNavigation {
+	padding-right: 25px;
+}
+
+/*
+	
+	Tableless Forms - Submit - Buttom
+
+*/
+
+div.divSubmitButtomContainer {
+}
+
+div.divSubmitButtomHeader {
+}
+
+div.divSubmitButtomFooter {
+}
+
+div.divSubmitButtomContent {
+	width: 75%;
+	text-align: left;
+}
+
+div.divSubmitButtomNavigation {
+	text-align: left;
+}
+
+/*
+	
+	Tableless Forms - Search
+
+*/
+
+div.divSearchBodyContainer {
+	line-height: 18px;
+	padding: 0px 0 10px 30px;
+}
+
+div.divSearchBodyHeader {
+	text-align: left;
+	font-size: 16px;
+	font-weight: bolder;
+	padding: 10px 0px 20px 0px;
+}
+
+div.divSearchBodyFooter {
+	padding: 5px 0;
+}
+
+div.divSearchBodyContent {
+	width: 50%;
+	text-align: left;
+}
+
+div.divLogInContent input, div.divSearchBodyNavigation input {
+	width: 185px;
+}
+
+div.divSearchBodyNavigation {
+	/*padding: 6px;*/
+}
+
+/*
+	
+	Tableless Forms - Search - Address or Intersection
+
+*/
+
+div#divAddressInterContainer {
+}
+
+div#divAddressInterFooter {
+}
+
+div#divAddressInterContent {
+}
+
+div.divAddressInterContentText {
+	margin-top: 2px;
+}
+
+div#divAddressInterNavigation {
+	margin-left: 10px;
+}
+
+/*
+	
+	Tableless Forms - Submit - Address or Intersection
+
+*/
+
+div#divSubmitAddressInterContainer {
+}
+
+div#divSubmitAddressInterFooter {
+	margin: 5px 0 15px;
+}
+
+div#divSubmitAddressInterContent {
+	margin-top: 2px;
+}
+
+div#divSubmitAddressInterContent input {
+	width: 147px;
+}
+
+div.divSubmitAddressInterContentButton {
+	margin: 2px 2px 0;
+}
+
+div.divSubmitAddressInterNavigation {
+	margin-top: 4px;
+}
+
+/*
+	
+	Tableless Forms - Search
+
+*/
+
+div.divSearchContainer {
+	margin: 5px 0 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted;
+}
+
+div.divSearchFooter {
+}
+
+div.divSearchContent {
+	margin: 2px 5px 0 0;
+}
+
+div.divSearchContent img {
+	width: 100px;
+}
+
+div.divSearchNavigation {
+	width: 60%;
+}
+
+/*
+	
+	Tableless Forms - Issue Details
+
+*/
+
+div.divIssueContainer {
+	margin: 0 0 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #333333;
+}
+
+div.divIssueHeader {
+	font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+div.divIssueFooter {	
+}
+
+div.divIssueContent {
+	margin: 5px 10px 0 0;
+	text-align: left;
+}
+
+div.divIssueContent img {
+	width: 154px;
+}
+
+div.divIssueNavigation {
+	width: 45%;
+	font-size: 14px;
+}
+
+/*
+	
+	Tableless Forms - Issue Details - Status
+
+*/
+
+div.divIssueStatusContainer {
+}
+
+div.divIssueStatusFooter {
+}
+
+div.divIssueStatusContent {
+	width: 38%;
+}
+
+div.divIssueStatusThridContent {
+}
+
+div.divIssueStatusNavigation {
+	width: 38%;
+}
+
+/*
+	
+	Tableless Forms - Issue Details - Comment
+
+*/
+
+div.divIssueCommentContainer {
+	border-bottom: 1px dotted #333333;
+    line-height: 20px;
+	margin: 5px 0 10px;
+	padding-bottom: 10px;
+}
+
+div.divIssueCommentFooter {
+	margin-top: 5px;
+}
+
+div.divIssueCommentContent {
+	color: #FF6600;
+}
+
+div.divIssueCommentThridContent {
+	color: #FF6600;
+}
+
+div.divIssueCommentNavigation {
+	color: #FF6600;
+}
+
+/*
+	
+	Tableless Forms - Submit - Required
+
+*/
+
+div#divRequiredContainer {
+	margin: 0 0 15px;
+}
+
+div#divRequiredFooter {
+}
+
+div#divRequiredContent {
+	text-align: left;
+	width: 50%;
+}
+
+div#divRequiredNavigation {
+	font-weight: bold;
+	text-align: right;
+	width: 50%;
+}
+
+/*
+
+	The Area for Section that hidden from the User
+
+*/
+
+.divJustHidden {
+	display: none;
+}
+
+div.divBasicMessage {
+	padding: 4px;
+	line-height: 19px;
+	text-align: center;
+	color: #FF0000;
+	display: none;
+}
+
+div.divBasicHidden {
+	padding: 4px 10px 4px 0;
+	display: none;
+	position: absolute;
+	z-index: 1001;
+}
+
+.divBasicHiddlenBackground {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	background-color: #000;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	z-index: 1000;
+	display: none;
+}
+
+.divHiddlenBody {
+    padding: 5px 3px;
+    text-align: left;
+	/*background-color: #f0e9cf;*/
+	text-transform: none;
+}
+
+.boardBox {
+	padding: 4px;
+	border: 2px solid #000000;
+}
+
+a.aClose{
+	color: #FFFFFF;
+	text-decoration:none;
+}
+
+a.aClose:hover{
+	color:#f0e8cf; 
+	text-decoration:none;
+}
+
+.divClose {
+    width: 57px;
+}
+
+/*
+
+	Sub Page Body
+
+*/
+
+#divSubHeader {
+	/*background: repeat-x url('../resources/Images/ryc-mobile-banner-bg.jpg');*/
+	background-color: #8db23e;
+	Font-size: 20px;
+	color: #fff;
+	padding: 10px 0 15px 12px;
+	margin-top: 10px;
+}
+
+#divSubBudy {
+	/*padding: 6px 11px;*/
+	padding: 7px;
+}
+
+#divFooter {
+	text-align: center;
+	padding-left: 0px;
+	margin: 10px 0 20px;
+}
+
+.divSubIntoText {
+	background-color: #eae7df;
+	font-size: 16px;
+	padding: 10px;
+    text-align: center;
+}
+
+.aSubHeader {
+	Font-size: 20px;
+	color: #fff;
+}
+
+/*
+
+	Home
+
+*/
+
+#divIntoText {
+	margin: 5px 0 10px;
+	text-align: center;
+}
+
+#lblIntoText {
+	font-size: 16px;
+}
+
+#divIssues {
+}
+
+#divProfile {
+	margin: 0 0 15px;
+}
+
+#divHomeIntroText {
+	border-top: 1px solid #D0D0D0;
+	padding-top: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+}
+
+#divHomeImage {
+	margin: 8px 0;
+	text-align: center;
+	width: 100%;
+}
+
+#divHomeImage img {
+	width: 100%;
+}
+
+#divHomeLogOut {
+	margin-top: 45px;
+}
+
+.lblHomeGreen {
+	color: #8EB33F;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.aWelcome {
+	text-transform: uppercase;
+}
+
+/*
+	
+	Submit
+
+*/
+
+#divAddress, #divIntersection {
+	margin: 10px 0;
+}
+
+#txtStreetAddressNumber {
+	width: 50px;
+}
+
+#txtStreetAddress {
+	width: 210px;
+}
+
+#txtKeyword {
+	width: 120px;
+}
+
+#divIntersection input {
+	width: 112px;
+}
+
+#divSubmitButton {
+	text-align: right;
+}
+
+#divIssueTags {
+	padding: 10px 0px;
+}
+
+#txtAgreeText {
+	overflow: auto;
+}
+
+#ddlWard {
+	width: 184px;
+}
+
+#divNextStep {
+	text-align: right;
+}
+
+#divPrevStep {
+	text-align: left;
+}
+
+.divDetailDescription {
+	margin-bottom: 10px;
+}
+
+.divAgreeTerms {
+	padding-bottom: 20px;
+    text-align: left;
+}
+
+.imgSumbitPhotos {
+	width: 50px;
+}
+
+.ddlAddressType {
+	width: 60px;	
+}
+
+.ddlAddressDirection {
+	width: 80px;	
+}
+
+.divMapCanvas { 
+  width: 100%; 
+  height: 200px;
+  margin: 20px 20px 10px 0;
+}
+
+/*
+
+	Register
+	
+*/
+
+#ddlProvince, #ddlCity, #ddlAssignment, .ddl311 {
+	width: 130px;
+}
+
+#txtPostalCode {
+	width: 60px;
+}
+
+#divContactInfo {
+	font-weight: bold;
+	margin: 15px 0;
+	text-align: left;
+	width: 95%;
+}
+
+#divRequiredFields {
+	margin: 10px 0;
+}
+
+/*
+
+	Search
+	
+*/
+
+.divSearch {
+	padding: 0 20px;
+}
+
+#divSearchReset {
+	margin-bottom: 8px;
+}
+
+#divAddressInter {
+	width: 65%;
+	margin-left: 5px;
+}
+
+#txtSearchStreetAddress {
+	width: 255px;
+}
+
+.divSearchIssueName {	
+}
+
+.divSearchIssueText {
+	margin: 8px 0;
+}
+
+.divSearchIssuePosted {
+	color: #999;
+}
+
+/*
+
+	Issues Details
+	
+*/
+
+#aIssuesDetailsBack, #aIssuesDetailsBack:active {
+	color: #FFF;
+	text-transform: none;
+	text-decoration: underline;
+}
+
+.divIssuePosted {
+}
+
+.divIssueStatus {
+	margin-top: 10px;	
+}
+
+.divIssueStatusShare {
+	padding-top: 15px;
+}
+
+.divIssueText {
+}
+
+.lblStatusColour {
+	text-transform: uppercase;
+}
+
+.spanIssueTime {
+	color: #5187C8;
+}
+
+.spanIssueTimeWord {
+	color: #D18022;
+    font-size: 8px;
+    font-weight: bold;
+	text-transform: uppercase;
+}
+
+#divIssueDetailsPhoto {
+	margin-top: 5px;
+	text-align: center;
+}

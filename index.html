@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <meta charset="utf-8">
+        
+        <!-- iPad/iPhone specific css below, add after your main css >
+        <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="CSS/mainCSSPad.css" type="text/css" />	-->	
+        <link rel="stylesheet" href="CSS/mainCSS.css" type="text/css" media="only screen and (max-device-width: 480px)" />		
+        
+        <!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+        <script src="javascript/MainJS.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascript/RSA.js" type="text/javascript" charset="utf-8"></script>
+        <script src="javascript/phonegap.js" type="text/javascript" charset="utf-8"></script>
+        <script src="javascript/jquery.retina.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="customContainer divWelcomeContainer">
+            <div class="customHeader divWelcomeHeader">
+            	<div id="divBody">
+                    <div class="customContainer divTopSubHeaderContainer">
+                        <div class="customContent divTopSubHeaderContent">
+                            <img alt="RYC" src="resources/Images/ryc-mobile-logo1.png" />
+                        </div>
+                        <div class="customNavigation divTopSubHeaderNavigation" id="divHomeLogOut">
+                        	<a href="Register.html" id="aLoginImage"><img alt="Sign Up" class="retina" src="resources/Images/signup-brown-btn.png" /></a>
+                            <a href="javascript:void(0);" onclick="window.localStorage.clear();window.location = 'index.html'" target="_self" id="aLogOut" class="divJustHidden"><img alt="Log Out" src="resources/Images/ryc-mobile-button-logout.png" id="imgLogout" /></a>
+                        </div>
+                        <div class="customFooter divTopSubHeaderFooter"></div>
+                    </div>
+				</div>
+                <div id="divHomeImage">
+                    <img alt="" src="resources/Images/HomeImage.jpg" />
+                </div>
+                <div id="divIntoText">
+                    <label id="lblIntoText">Rebuild Your Community is the highly anticipated, free to use new e-community and social media tool that helps you build networks with your neighbours, easily hold officials accountable, and advocate for improvements in your community.</label>
+                </div>
+            </div>
+            
+            <div class="customContent divWelcomeContent">
+                <div class="divJustHidden" id="divSubmit">
+                    <a href="Submit.html"><img alt="Submit" class="retina" src="resources/Images/ryc-mobile-button-Submit.png" /></a>
+                </div>
+                <div id="divLogIn">
+                    <a href="Login.html"><img alt="Login" class="retina" src="resources/Images/login-green-btn.png" /></a>
+                </div>
+            </div>
+            <div class="customThridContent divWelcomeThridContent" id="divRegister">
+                <a href="Register.html"><img alt="Sign Up" class="retina" src="resources/Images/ryc-mobile-button-SignUp.png" /></a>
+            </div>
+            <div class="customNavigation divWelcomeNavigation" id="divSearch">
+               <a href="Search.html"><img alt="Search" class="retina" src="resources/Images/ryc-mobile-button-Search.png" /></a>
+            </div>
+            <div class="customFooter divWelcomeFooter"></div>
+        </div>
+        <div id="divFooter">
+            <div class="customContainer divFooterContainer">
+                <div class="customContent divFooterContent">
+                    <a href="About.html" target="_self">About</a>
+                </div>
+                <div class="customContent divFooterContent">
+                    <a href="Privacy.html" target="_self">Privacy</a>
+                </div>
+                <div class="customContent divFooterContent">
+                    <a href="Terms.html" target="_self">Terms of Use</a>
+                </div>
+                <div class="customNavigation divFooterNavigation">
+                    <a href="Contact.html" target="_self">Contact Us</a>
+                </div>
+                <div class="customFooter" id="divFooterFooter"></div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			/* When this function is called, PhoneGap has been initialized and is ready to roll */
+			/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+			see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+			for more details -jm */
+			function onDeviceReady()
+			{
+						
+				//checks if the user is if not so then do not display the Profile and give them the option to Login using the Submit link
+				if(isNaN(window.localStorage.getItem("intUserID")) == false && parseInt(window.localStorage.getItem("intUserID")) > 0)
+				{
+					//getDocID("divProfile").style.display = "block";
+					getDocID("aLogOut").style.display = "block";
+					getDocID("divLogIn").style.display = "none";
+					getDocID("aLoginImage").style.display = "none";
+					getDocID("divRegister").style.display = "none";
+					getDocID("divSearch").className = "customNavigation divWelcomeLogInNavigation";
+					getDocID("divSubmit").className = "customContent divWelcomeLogInContent";
+					getDocID("divSubmit").style.display = "block";
+				}//end of if
+			}//end of onDeviceReady()
+			
+			$(document).ready(function() {
+				$('img.retina').retina();
+			});
+        </script>
+    </body>
+</html>

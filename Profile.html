@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/SubPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" id="viewport" content="initial-scale=1.0,user-scalable=no" />
+    
+    <script src="javascript/MainJS.js" type="text/javascript"></script>
+    <script src="javascript/RSA.js" type="text/javascript" charset="utf-8"></script>
+	<script src="javascript/phonegap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/jquery.retina.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- InstanceBeginEditable name="HeaderCSS" -->
+    
+    <!-- InstanceEndEditable -->
+    
+    <!-- iPad/iPhone specific css below, add after your main css  media="only screen and (max-device-width: 480px)"
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="../www/CSS/mainCSSPad.css" type="text/css" />-->	
+	<link rel="stylesheet" href="CSS/mainCSS.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+    
+    <script type="text/javascript" charset="utf-8"> 
+		//Wait for PhoneGap to load
+		document.addEventListener("deviceready", onDeviceReady, false);
+	 
+		//PhoneGap is ready
+		function onDeviceReady() 
+		{						
+			//loads the browser inside the app
+			if(window.plugins.childBrowser == null)
+				ChildBrowser.install();
+		}//end of onDeviceReady()
+    </script>
+    
+    <!-- InstanceBeginEditable name="doctitle" -->
+	<title>RYC - Profile</title>
+	<!-- InstanceEndEditable -->
+	<!-- InstanceBeginEditable name="head" -->
+	<script type="text/javascript" charset="utf-8">
+		//Wait for PhoneGap to load
+		document.addEventListener("deviceready", onDeviceReady, false);
+	
+		//PhoneGap is ready
+		function onDeviceReady() 
+		{			
+			//gets the issues that the user whats
+			sendGetProfile('','divMessage',getDocID('lblUser'),getDocID('divProfile'));
+		}//end of onDeviceReady()
+	 </script>
+	 <!-- InstanceEndEditable -->
+</head>
+<body>
+	<div data-role="page" id="Home">            
+     	<div data-role="content">
+            <div id="divBody">
+                <div class="customContainer divTopSubHeaderContainer">
+                    <div class="customContent divTopSubHeaderContent">
+                        <img alt="RYC" src="resources/Images/ryc-mobile-logo1.png" />
+                    </div>
+                    <div class="customNavigation divTopSubHeaderNavigation" id="divMenu">
+                    	<a href="Register.html" id="aLoginImage"><img alt="Sign Up" class="retina" src="resources/Images/signup-brown-btn.png" /></a>               
+                    	<a href="javascript:void(0);" onclick="window.localStorage.clear();window.location = 'index.html'" target="_self" id="aLogOut" class="divJustHidden"><img alt="Log Out" src="resources/Images/ryc-mobile-button-logout.png" id="imgLogout" /></a>
+                        <br /><br />
+                    	<a href="index.html" target="_self"><img alt="Menu" src="resources/Images/ryc-mobile-button-menu.png" id="imgMenu" /></a>
+                    </div>
+                    <div class="customFooter divTopSubHeaderFooter"></div>
+                </div>
+            </div>
+            <div id="divSubHeader">
+                <!-- InstanceBeginEditable name="SubHeader" -->
+        		<label>Profile</label>
+				<!-- InstanceEndEditable -->
+            </div>
+            <!-- InstanceBeginEditable name="IntroText" -->
+            
+            <!-- InstanceEndEditable -->
+            <div id="divSubBudy">
+                <!-- InstanceBeginEditable name="SubBody" -->
+            	<div class="divBasicMessage" id="divMessage"></div>
+            
+        		<div id="divProfile"></div>
+				<!-- InstanceEndEditable -->
+            </div>
+		</div>
+	</div>
+        
+    <!-- InstanceBeginEditable name="SubFooter" --><!-- InstanceEndEditable -->
+    
+    <div id="divFooter">
+        <div class="customContainer divFooterContainer">
+            <div class="customContent divFooterContent">
+                <a href="About.html" target="_self">About</a>
+            </div>
+            <div class="customContent divFooterContent">
+                <a href="Privacy.html" target="_self">Privacy</a>
+            </div>
+            <div class="customContent divFooterContent">
+                <a href="Terms.html" target="_self">Terms of Use</a>
+            </div>
+            <div class="customNavigation divFooterNavigation">
+                <a href="Contact.html" target="_self">Contact Us</a>
+            </div>
+            <div class="customFooter" id="divFooterFooter"></div>
+        </div>
+    </div>
+    
+	<script type="text/javascript">						
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		/* When this function is called, PhoneGap has been initialized and is ready to roll */
+		/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+		see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+		for more details -jm */
+		function onDeviceReady()
+		{			
+			//checks if the user is if not so then do not display the Profile and give them the option to log in using the Submit link
+			if(isNaN(window.localStorage.getItem("intUserID")) == false && parseInt(window.localStorage.getItem("intUserID")) > 0)
+			{
+				getDocID("aLogOut").style.display = "block";
+				getDocID("aLoginImage").style.display = "none";
+				getDocID("divMenu").className = "customContent divTopSubHeaderLogInNavigation";
+			}//end of if
+		}//end of onDeviceReady()
+		
+		$(document).ready(function() {
+			$('img.retina').retina();
+		});
+	</script>
+</body>
+<!-- InstanceEnd --></html>
